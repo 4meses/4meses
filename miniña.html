@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="heart.ico" type="image/x-icon" />
+<title>Felices 4 meses</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;700&display=swap');
+
+  body {
+    background: linear-gradient(135deg, #ffe6f0 0%, #ffd1dc 100%);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #5a154a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    list-style:none; 
+    display:flex; 
+    justify-content:center; 
+    gap:40px; 
+    background:#ffb6c1; 
+    padding:12px 0; 
+    margin:0 0 30px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(255,182,193,0.5);
+  }
+  nav ul li {
+    font-weight:700; 
+    color:#fff; 
+    font-size: 22px; 
+    display:flex; 
+    align-items:center; 
+    gap:8px;
+  }
+  nav ul li a {
+    color:#fff; 
+    text-decoration:none; 
+    font-weight:700; 
+    font-size: 22px; 
+    display:flex; 
+    align-items:center; 
+    gap:8px;
+    transition: color 0.3s ease;
+  }
+  nav ul li a:hover {
+    color: #ff6f91;
+  }
+
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #e89abf;
+  }
+
+  .heart {
+    font-size: 3rem;
+    color: #ff4d8b;
+    animation: pulse 2s infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  .message {
+    font-style: italic;
+    font-size: 1.4rem;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    background: rgba(255, 182, 193, 0.25);
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 6px 12px rgba(255,182,193,0.4);
+  }
+
+  .photo-container {
+    margin: 20px auto;
+    max-width: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(255,105,180,0.4);
+  }
+  .photo-container img {
+    width: 100%;
+    display: block;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 15px 0;
+    font-size: 1rem;
+    color: #a1557e;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">❤️ Te amo ❤️</a></li>
+    <li>❤️ Miniña ❤️</li>
+    <li><a href="fotos.html">❤️ Nuestas Fotos ❤️</a></li>
+  </ul>
+</nav>
+
+<h1>Miniña Bonita</h1>
+<div class="heart">💖</div>
+
+<div class="message">
+  <p>Mi amor, eres la luz que ilumina mis días, la sonrisa que alegra mi alma y el latido que hace bailar mi corazón. Cada momento contigo es un regalo que guardare el resto de mi vida.<br><br>
+  Gracias por ser tú, tan maravillosa, tan dulce y tan única. Esta página es un pequeño regalo por dejarme estar a tu lado durante estos increibles 4 meses 
+    <br>¡Te amo con toda mi fuerza! 💕</p>
+</div>
+
+<div class="photo-container">
+  <img src="miniña.jpg" alt="Foto de Miniña" />
+</div>
+
+<footer>
+  Con todo mi amor, para siempre ❤️
+</footer>
+
+<script>
+  if(sessionStorage.getItem('accesoPermitido') !== 'true') {
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>

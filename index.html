@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="heart.ico" type="image/x-icon" />
+<title>Felices 4 meses</title>
+<style>
+
+  body {
+    background: linear-gradient(135deg, #ffe6f0 0%, #ffd1dc 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #5a154a;
+  }
+  #login-panel {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  input[type="password"] {
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 2px solid #ffb6c1;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 180px;
+    text-align: center;
+  }
+  button {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    padding: 8px 20px;
+    background-color: #ffb6c1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #ff1493;
+  }
+  #error-message {
+    color: #c71585;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  #content {
+    display: none;
+    padding: 20px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    background: #ffb6c1; /* rosita */
+    padding: 12px 0;
+    margin: 0 0 30px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(255, 182, 193, 0.6);
+  }
+
+  nav ul li {
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #ff4d7a;
+  }
+
+  h1 {
+    color: #c71585;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px #a13a6b;
+  }
+
+  img {
+    max-width: 400px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+  }
+
+  .poema {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #a83279;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+</style>
+</head>
+<body>
+
+<div id="login-panel">
+  <h1>Introduce la contraseña para entrar</h1>
+  <input type="password" id="password" placeholder="Fecha (dd mm aa)" />
+  <button onclick="checkPassword()">Entrar</button>
+  <div id="error-message"></div>
+</div>
+
+<div id="content">
+  <nav>
+    <ul>
+      <li><a href="index.html">❤️ Te amo ❤️</a></li>
+      <li><a href="miniña.html">❤️ Miniña ❤️</a></li>
+      <li><a href="fotos.html">❤️ Nuestras fotos ❤️</a></li>
+    </ul>
+  </nav>
+
+  <h1>Para mi querida Natalia</h1>
+  <img src="Love.webp" alt="Te amo Natalia" />
+  <div class="poema">
+    <p>
+      Te amo con locura mi amor<br>
+      Ya son 4 meses y no podria estar mas feliz de compartirlos contigo<br><br>
+      Conocerte ha sido lo mejor que me ha pasado<br>
+      Lo unico que quiero es hacerte feliz el resto de mi vida
+    </p>
+    <h1>❤️</h1>
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    if(sessionStorage.getItem('accesoPermitido') === 'true') {
+      document.getElementById('login-panel').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }
+  };
+
+  function checkPassword() {
+    const passInput = document.getElementById('password').value.trim();
+    if(passInput === "20 02 25" || passInput === "200225" || passInput === "20-02-25") {
+      sessionStorage.setItem('accesoPermitido', 'true');
+      document.getElementById('login-panel').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    } else {
+      document.getElementById('error-message').textContent = "Contraseña incorrecta, inténtalo de nuevo.";
+    }
+  }
+
+  document.getElementById('password').addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+</script>
+
+</body>
+</html>

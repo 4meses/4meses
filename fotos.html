@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="heart.ico" type="image/x-icon" />
+<title>Felices 4 meses</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  body {
+    background: linear-gradient(135deg, #ffe6f0 0%, #ffd1dc 100%);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #5a154a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    list-style:none; 
+    display:flex; 
+    justify-content:center; 
+    gap:40px; 
+    background:#ffb6c1; 
+    padding:12px 0; 
+    margin:0 0 30px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(255,182,193,0.5);
+  }
+  nav ul li {
+    font-weight:700; 
+    color:#fff; 
+    font-size: 22px; 
+    display:flex; 
+    align-items:center; 
+    gap:8px;
+  }
+  nav ul li a {
+    color:#fff; 
+    text-decoration:none; 
+    font-weight:700; 
+    font-size: 22px; 
+    display:flex; 
+    align-items:center; 
+    gap:8px;
+    transition: color 0.3s ease;
+  }
+  nav ul li a:hover {
+    color: #ff6f91;
+  }
+
+  h1 {
+    font-size: 3.0rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #e89abf;
+    font-weight: 700;
+  }
+
+  .collage {
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    grid-template-rows: repeat(2, 220px);
+    justify-content: center;
+    gap: 25px;
+    margin: 0 auto 40px auto;
+  }
+
+  .collage img {
+    width: 260px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(255,105,180,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .collage img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255,105,180,0.7);
+  }
+
+  /* Overlay para imagen ampliada */
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 230, 240, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(255,105,180,0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 15px 0;
+    font-size: 1rem;
+    color: #a1557e;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">❤️ Te amo ❤️</a></li>
+    <li><a href="miniña.html">❤️ Miniña ❤️</a></li>
+    <li><a href="fotos.html">❤️ Nuestras Fotos ❤️</a></li>
+  </ul>
+</nav>
+<br>
+<br>
+<br>
+
+<h1>Nuestros Recuerdos mas bonitos</h1>
+
+<div class="collage">
+  <img src="foto1.jpg" alt="Foto 1" />
+  <img src="foto2.jpg" alt="Foto 2" />
+  <img src="foto3.jpg" alt="Foto 3" />
+  <img src="foto4.jpg" alt="Foto 4" />
+  <img src="foto5.jpg" alt="Foto 5" />
+  <img src="foto6.jpg" alt="Foto 6" />
+</div>
+
+<footer>
+  Momentos para siempre, juntos ❤️
+</footer>
+
+<!-- Overlay para mostrar la imagen grande -->
+<div id="overlay">
+  <img src="" alt="Imagen ampliada" />
+</div>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const overlayImage = overlay.querySelector('img');
+
+  document.querySelectorAll('.collage img').forEach(img => {
+    img.addEventListener('click', () => {
+      // Si overlay está abierto y es la misma imagen, cerramos
+      if (overlay.style.display === 'flex' && overlayImage.src === img.src) {
+        overlay.style.display = 'none';
+        overlayImage.src = '';
+      } else {
+        // Abrir overlay con la imagen clicada
+        overlayImage.src = img.src;
+        overlay.style.display = 'flex';
+      }
+    });
+  });
+
+  // También cerramos al clicar en el overlay fuera de la imagen
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target === overlayImage) {
+      overlay.style.display = 'none';
+      overlayImage.src = '';
+    }
+  });
+</script>
+
+</body>
+</html>
